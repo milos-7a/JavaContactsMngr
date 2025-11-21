@@ -1,0 +1,11 @@
+id,kontakt_id,vrednost,tip
+1,1,637334060,Telefon
+2,1,www.facebook.com,Link
+5,6,kristina@gmail.com,Email
+6,6,www.instagram.com/kristina,Link
+7,1,milos@gmail.com,Email
+8,5,milanpetrovic@mef.edu,Email
+9,7,sreten@gmail.com,Email
+11,8,ognjen@gmail.com,Email
+12,8,www.facebook.com/user/ognjenobradovic,Link
+13,9,63123456,Telefon

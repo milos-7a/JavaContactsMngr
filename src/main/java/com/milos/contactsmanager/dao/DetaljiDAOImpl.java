@@ -116,12 +116,17 @@ public class DetaljiDAOImpl implements DetaljiDAO {
         String vrednost = red[2].trim();
         String tip = red[3].trim();
 
-        return switch (tip) {
-            case "Telefon" -> new Telefon(id, kontaktId, tip, Integer.parseInt(vrednost));
-            case "Email" -> new Email(id, kontaktId, tip, vrednost);
-            case "Link" -> new Link(id, kontaktId, tip, vrednost);
-            default -> null;
-        };
+        switch (tip) {
+            case "Telefon":
+                return new Telefon(id, kontaktId, tip, Integer.parseInt(vrednost));
+            case "Email":
+                return new Email(id, kontaktId, tip, vrednost);
+            case "Link":
+                return new Link(id, kontaktId, tip, vrednost);
+            default:
+                return null;
+        }
+
     }
 
     private int poslednjiSlobodanID() throws DetaljiDAOException {

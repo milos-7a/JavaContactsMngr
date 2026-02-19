@@ -118,7 +118,7 @@ public class DetaljiDAOImpl implements DetaljiDAO {
 
         switch (tip) {
             case "Telefon":
-                return new Telefon(id, kontaktId, tip, Integer.parseInt(vrednost));
+                return new Telefon(id, kontaktId, tip, vrednost);
             case "Email":
                 return new Email(id, kontaktId, tip, vrednost);
             case "Link":
@@ -126,7 +126,6 @@ public class DetaljiDAOImpl implements DetaljiDAO {
             default:
                 return null;
         }
-
     }
 
     private int poslednjiSlobodanID() throws DetaljiDAOException {

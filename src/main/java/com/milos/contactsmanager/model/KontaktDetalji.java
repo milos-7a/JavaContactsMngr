@@ -29,6 +29,6 @@ public abstract class KontaktDetalji {
     public abstract String vratiVrednosti();
     @Override
     public String toString() {
-        return String.valueOf(id) + kontakt_id + tip;
+        return tip + " - " + vratiVrednosti();
     }
 }

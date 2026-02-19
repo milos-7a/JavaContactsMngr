@@ -1,32 +1,28 @@
 package com.milos.contactsmanager.model;
 
 public class Telefon extends KontaktDetalji{
-    private int broj;
+    private String broj;
 
     //Konstruktori
     public Telefon(){
         super(0,0,null);
-        broj = 0;
+        broj = "";
     }
-    public Telefon(int id, int kontakt_id, String tip, int broj){
+    public Telefon(int id, int kontakt_id, String tip, String broj){
         super(id, kontakt_id, tip);
         this.broj = broj;
     }
 
-    public int getBroj() {
+    public String getBroj() {
         return broj;
     }
-    public void setBroj(int broj) {
+    public void setBroj(String broj) {
         this.broj = broj;
     }
 
     @Override
     public String vratiVrednosti() {
-        return String.valueOf(broj);
+        return broj;
     }
 
-    @Override
-    public String toString() {
-        return String.valueOf(broj) + " - " + getTip();
-    }
 }

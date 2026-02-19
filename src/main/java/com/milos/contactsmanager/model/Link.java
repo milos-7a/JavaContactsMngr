@@ -24,8 +24,5 @@ public class Link extends KontaktDetalji{
     public String vratiVrednosti() {
         return url;
     }
-    @Override
-    public String toString() {
-        return url + " - " + getTip();
-    }
+
 }

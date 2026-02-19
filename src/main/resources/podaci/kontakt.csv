@@ -1,7 +1,7 @@
 id,ime,prezime,kompanija,rodjendan,napomene,slika,adresa
-1,Milos,Nikolic,,2005-06-21,kolega,,Jovana Popovica 42
+1,Milos,,,2002-06-21,kolega,,Jovana Popovica 42
 5,Milan,Petrovic,MEF,2002-07-10,Asistent,,
 6,Kristina,,K,2004-10-07,,,Cara Lazara
 7,Sreten,Sretenkovic,Tehnika komerc,2003-09-28,Elektricar,,Jezerska BB
-8,Ognjen,Obradovic,Pravni Fakultet,2005-09-21,Rodjak,,Generala Zdanova 10/17
+8,Ognjen,,Pravni Fakultet,2005-09-21,Rodjak,,Generala Zdanova
 9,Petar,Petrovic,MEF,2000-12-01,Prijatelj,,Jevrejska

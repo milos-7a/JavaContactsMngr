@@ -22,8 +22,5 @@ public class Email extends KontaktDetalji{
     public String vratiVrednosti() {
         return email;
     }
-    @Override
-    public String toString() {
-        return email + " - " + getTip();
-    }
+
 }

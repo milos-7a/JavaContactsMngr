@@ -202,6 +202,8 @@ public class KonzolnaAplikacija {
     }
 
     private void obrisiKontakt() {
+        prikaziSve();
+
         System.out.print("ID kontakta za brisanje: ");
         int id;
         try {
@@ -211,12 +213,18 @@ public class KonzolnaAplikacija {
             return;
         }
 
-        try {
-            kontaktService.obrisiKontakt(id);
-            System.out.println("Kontakt i svi detalji obrisani.");
-        } catch (KontaktServisException e) {
-            System.err.println("Greska prilikom brisanja: " + e.getMessage());
+        System.out.println("Da li sigurno zelis da obrises izabrani kontakt? (DA - za potvrdu): ");
+        String odgovor = scanner.nextLine();
+
+        if(odgovor.equalsIgnoreCase("da")) {
+            try {
+                kontaktService.obrisiKontakt(id);
+                System.out.println("Kontakt i svi detalji obrisani.");
+            } catch (KontaktServisException e) {
+                System.err.println("Greska prilikom brisanja: " + e.getMessage());
+            }
         }
+
     }
 
     private void upravljajDetaljima() {
@@ -297,24 +305,30 @@ public class KonzolnaAplikacija {
         try{
             switch (tip) {
                 case "1": {
-                    System.out.print("Unesi broj: ");
+                    System.out.print("Unesi broj: +");
                     String brojStr = scanner.nextLine();
-                    try {
-                        int broj = Integer.parseInt(brojStr);
-                        detaljiService.dodajDetalj(kontaktId, new Telefon(0, kontaktId, "Telefon", broj));
-                    } catch (NumberFormatException e) {
-                        System.err.println("Neispravan format broja telefona.");
+                    if (brojStr.matches("[0-9]+")){
+                        detaljiService.dodajDetalj(kontaktId, new Telefon(0, kontaktId, "Telefon", "+" + brojStr));
+                        System.out.println("Detalj dodat.");
+                        break;
+                    }
+                    else {
+                        System.err.println("Nepravilan broj telefona. Telefon mora da sadrzi samo brojeve.");
                         return;
                     }
-                    System.out.println("Detalj dodat.");
-                    break;
                 }
                 case "2": {
                     System.out.print("Unesi email: ");
                     String vrednost = scanner.nextLine();
-                    detaljiService.dodajDetalj(kontaktId, new Email(0, kontaktId, "Email", vrednost));
-                    System.out.println("Detalj dodat.");
-                    break;
+                    if (vrednost.contains("@") && vrednost.contains(".")) {
+                        detaljiService.dodajDetalj(kontaktId, new Email(0, kontaktId, "Email", vrednost));
+                        System.out.println("Detalj dodat.");
+                        break;
+                    }
+                    else {
+                        System.err.println("Nepravilan format e-mail adrese. E-mail mora da sadrzi (@) i tacku.");
+                        return;
+                    }
                 }
                 case "3": {
                     System.out.print("Unesi link: ");

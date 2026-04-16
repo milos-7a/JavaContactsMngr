@@ -19,7 +19,6 @@ public class KonzolnaAplikacija {
     }
     public void pokreni(){
         boolean radi = true;
-
         while (radi) {
             System.out.println("\n===== KONTAKTNI MENI =====");
             System.out.println("1. Prikazi sve kontakte");
@@ -224,7 +223,6 @@ public class KonzolnaAplikacija {
                 System.err.println("Greska prilikom brisanja: " + e.getMessage());
             }
         }
-
     }
 
     private void upravljajDetaljima() {

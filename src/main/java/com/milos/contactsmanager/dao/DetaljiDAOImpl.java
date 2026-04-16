@@ -17,7 +17,7 @@ public class DetaljiDAOImpl implements DetaljiDAO {
     private static final String DATA_PATH = "src/main/resources/podaci/kontakt_detalji.csv";
 
     @Override
-    public List<KontaktDetalji> uzmiDetaljePoKontaktID(int kontaktId) throws DetaljiDAOException {
+    public List<KontaktDetalji> uzmiDetaljePoKontaktID(int kontaktId) throws DetaljiDAOException{
         List<KontaktDetalji> lista = new ArrayList<>();
         try (CSVReader csvReader = new CSVReader(new FileReader(DATA_PATH))) {
             csvReader.readNext(); // header
@@ -70,7 +70,6 @@ public class DetaljiDAOImpl implements DetaljiDAO {
                 return true;
             }
         }
-
         return false;
     }
 

@@ -6,6 +6,7 @@ import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,6 +16,32 @@ import java.util.List;
 
 public class KontaktDAOImpl implements KontaktDAO {
     private static final String DATA_PATH = "src/main/resources/podaci/kontakt.csv";
+
+    private void inicijalizacijaFajlova () {
+        try {
+            File kontaktFile = new File(DATA_PATH);
+            File detaljiFile = new File("src/main/resources/podaci/kontakt_detalji.csv");
+            if (!kontaktFile.exists()) {
+                try (CSVWriter writer = new CSVWriter(new FileWriter(kontaktFile))) {
+                    String[] header = {"id", "ime", "prezime", "kompanija", "rodjendan", "napomene", "slika", "adresa"};
+                    writer.writeNext(header);
+                }
+                System.out.println("Kreiran novi fajl: " + kontaktFile.getPath());
+            }
+            if (!detaljiFile.exists()) {
+                try (CSVWriter writer = new CSVWriter(new FileWriter(detaljiFile))) {
+                    String[] header = {"id", "kontakt_id", "vrednost", "tip"};
+                    writer.writeNext(header);
+                }
+                System.out.println("Kreiran novi fajl: " + detaljiFile.getPath());
+            }
+        } catch (IOException e){
+            System.err.println("Greška prilikom kreiranja CSV fajlova: " + e.getMessage());
+        }
+    }
+    public KontaktDAOImpl(){
+        inicijalizacijaFajlova();
+    }
 
     @Override
     public List<Kontakt> vratiListuKontakta() throws KontaktDAOException {

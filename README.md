@@ -57,7 +57,7 @@ Data is stored in **CSV files** using the **OpenCSV** library:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/milos-7a/JavaContactsMngr.git
+   git clone https://github.com/milos-7a/Java-Contacts-Manager.git
    cd JavaContactsMngr
 2. Run the application using Maven:
    ```bash
